@@ -33,7 +33,8 @@
             btnCancel = new Button();
             panel1 = new Panel();
             panelFill = new Panel();
-            label1 = new Label();
+            textBoxName = new TextBox();
+            LabelTypeName = new Label();
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
             SuspendLayout();
@@ -45,9 +46,9 @@
             flowLayoutPanelBottom.Controls.Add(btnCancel);
             flowLayoutPanelBottom.Controls.Add(panel1);
             flowLayoutPanelBottom.Dock = DockStyle.Bottom;
-            flowLayoutPanelBottom.Location = new Point(0, 393);
+            flowLayoutPanelBottom.Location = new Point(0, 79);
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
-            flowLayoutPanelBottom.Size = new Size(723, 67);
+            flowLayoutPanelBottom.Size = new Size(434, 67);
             flowLayoutPanelBottom.TabIndex = 1;
             // 
             // btnSaveChanges
@@ -81,36 +82,46 @@
             // 
             // panelFill
             // 
-            panelFill.Controls.Add(label1);
+            panelFill.Controls.Add(textBoxName);
+            panelFill.Controls.Add(LabelTypeName);
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10);
-            panelFill.Size = new Size(723, 393);
+            panelFill.Size = new Size(434, 79);
             panelFill.TabIndex = 2;
             // 
-            // label1
+            // textBoxName
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Top;
-            label1.Location = new Point(10, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(63, 25);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            textBoxName.Dock = DockStyle.Top;
+            textBoxName.Location = new Point(10, 35);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(414, 33);
+            textBoxName.TabIndex = 1;
+            // 
+            // LabelTypeName
+            // 
+            LabelTypeName.AutoSize = true;
+            LabelTypeName.Dock = DockStyle.Top;
+            LabelTypeName.Location = new Point(10, 10);
+            LabelTypeName.Margin = new Padding(3, 15, 3, 0);
+            LabelTypeName.Name = "LabelTypeName";
+            LabelTypeName.Size = new Size(104, 25);
+            LabelTypeName.TabIndex = 0;
+            LabelTypeName.Text = "Тип аниме";
             // 
             // FormAddType
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(723, 460);
+            ClientSize = new Size(434, 146);
             Controls.Add(panelFill);
             Controls.Add(flowLayoutPanelBottom);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
             Name = "FormAddType";
-            Text = "FormAddType";
+            Text = "Информация о типе аниме";
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
@@ -125,6 +136,7 @@
         private Panel panelFill;
         private Button btnSaveChanges;
         private Button btnCancel;
-        private Label label1;
+        private Label LabelTypeName;
+        private TextBox textBoxName;
     }
 }

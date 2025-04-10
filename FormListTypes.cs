@@ -22,9 +22,10 @@ namespace AppTitlesAnime
 
         }
 
-        private void btnAddType_Click(object sender, EventArgs e)
+        private void BtnAddType_Click(object sender, EventArgs e)
         {
-
+            FormAddType formAddType = new FormAddType();
+            formAddType.ShowDialog();
         }
 
         private void FormListTypes_Load(object sender, EventArgs e)

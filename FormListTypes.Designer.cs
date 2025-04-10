@@ -60,7 +60,7 @@
             btnAddType.TabIndex = 0;
             btnAddType.Text = "Добавить";
             btnAddType.UseVisualStyleBackColor = true;
-            btnAddType.Click += btnAddType_Click;
+            btnAddType.Click += BtnAddType_Click;
             // 
             // btnUpdateType
             // 
