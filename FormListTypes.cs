@@ -7,14 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppContext = AppTitlesAnime.Models.AppContext;
 
 namespace AppTitlesAnime
 {
     public partial class FormListTypes : Form
     {
+        private AppContext db;
         public FormListTypes()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.db = new AppContext();
         }
 
         private void button2_Click(object sender, EventArgs e)

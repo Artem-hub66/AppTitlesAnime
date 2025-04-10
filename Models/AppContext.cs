@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppTitlesAnime.Models;
 
-public partial class DbAnimeTitlesContext : DbContext
+public partial class AppContext : DbContext
 {
     public virtual DbSet<AnimeTitle> AnimeTitles { get; set; }
 
