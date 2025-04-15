@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -23,6 +25,23 @@ namespace AppTitlesAnime
         {
             base.OnLoad(e);
             this.db = new AppContext();
+            this.db.Types.Load();
+            this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
+
+            //скрытие столбцов
+            dataGridViewTypes.Columns["id"].Visible = false;
+            dataGridViewTypes.Columns["AnimeTitles"].Visible = false;
+
+            //изменение названий заголовков столбцов
+            dataGridViewTypes.Columns["TypeName"].HeaderText = "Тип аниме";
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            this.db?.Dispose();
+            this.db = null;
         }
 
         private void button2_Click(object sender, EventArgs e)

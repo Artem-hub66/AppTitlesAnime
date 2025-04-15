@@ -49,7 +49,7 @@
             flowLayoutPanelTop.Dock = DockStyle.Top;
             flowLayoutPanelTop.Location = new Point(10, 10);
             flowLayoutPanelTop.Name = "flowLayoutPanelTop";
-            flowLayoutPanelTop.Size = new Size(1237, 38);
+            flowLayoutPanelTop.Size = new Size(914, 38);
             flowLayoutPanelTop.TabIndex = 0;
             // 
             // btnAddType
@@ -83,13 +83,16 @@
             // 
             // dataGridViewTypes
             // 
+            dataGridViewTypes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTypes.BackgroundColor = Color.White;
             dataGridViewTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTypes.Dock = DockStyle.Fill;
             dataGridViewTypes.Location = new Point(10, 10);
+            dataGridViewTypes.MultiSelect = false;
             dataGridViewTypes.Name = "dataGridViewTypes";
             dataGridViewTypes.ReadOnly = true;
-            dataGridViewTypes.Size = new Size(1217, 672);
+            dataGridViewTypes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTypes.Size = new Size(894, 433);
             dataGridViewTypes.TabIndex = 1;
             // 
             // PanelFill
@@ -99,7 +102,7 @@
             PanelFill.Location = new Point(10, 48);
             PanelFill.Name = "PanelFill";
             PanelFill.Padding = new Padding(10);
-            PanelFill.Size = new Size(1237, 692);
+            PanelFill.Size = new Size(914, 453);
             PanelFill.TabIndex = 2;
             // 
             // FormListTypes
@@ -107,7 +110,7 @@
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1257, 750);
+            ClientSize = new Size(934, 511);
             Controls.Add(PanelFill);
             Controls.Add(flowLayoutPanelTop);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
