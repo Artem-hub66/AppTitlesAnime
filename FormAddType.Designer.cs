@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             flowLayoutPanelBottom = new FlowLayoutPanel();
             btnSaveChanges = new Button();
             btnCancel = new Button();
             panel1 = new Panel();
             panelFill = new Panel();
-            textBoxName = new TextBox();
+            textBoxTypeName = new TextBox();
             LabelTypeName = new Label();
+            errorProvider = new ErrorProvider(components);
             flowLayoutPanelBottom.SuspendLayout();
             panelFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelBottom
@@ -54,20 +57,23 @@
             // btnSaveChanges
             // 
             btnSaveChanges.AutoSize = true;
+            btnSaveChanges.DialogResult = DialogResult.OK;
             btnSaveChanges.Location = new Point(3, 3);
             btnSaveChanges.Name = "btnSaveChanges";
             btnSaveChanges.Size = new Size(135, 55);
-            btnSaveChanges.TabIndex = 3;
+            btnSaveChanges.TabIndex = 0;
             btnSaveChanges.Text = "Сохранить";
             btnSaveChanges.UseVisualStyleBackColor = true;
+            btnSaveChanges.Click += btnSaveChanges_Click;
             // 
             // btnCancel
             // 
             btnCancel.AutoSize = true;
+            btnCancel.DialogResult = DialogResult.Cancel;
             btnCancel.Location = new Point(144, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(108, 55);
-            btnCancel.TabIndex = 2;
+            btnCancel.TabIndex = 1;
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -82,22 +88,24 @@
             // 
             // panelFill
             // 
-            panelFill.Controls.Add(textBoxName);
+            panelFill.Controls.Add(textBoxTypeName);
             panelFill.Controls.Add(LabelTypeName);
             panelFill.Dock = DockStyle.Fill;
             panelFill.Location = new Point(0, 0);
             panelFill.Name = "panelFill";
             panelFill.Padding = new Padding(10);
             panelFill.Size = new Size(434, 79);
-            panelFill.TabIndex = 2;
+            panelFill.TabIndex = 0;
             // 
-            // textBoxName
+            // textBoxTypeName
             // 
-            textBoxName.Dock = DockStyle.Top;
-            textBoxName.Location = new Point(10, 35);
-            textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(414, 33);
-            textBoxName.TabIndex = 1;
+            textBoxTypeName.Dock = DockStyle.Top;
+            textBoxTypeName.Location = new Point(10, 35);
+            textBoxTypeName.Name = "textBoxTypeName";
+            textBoxTypeName.Size = new Size(414, 33);
+            textBoxTypeName.TabIndex = 1;
+            textBoxTypeName.TextChanged += TextBoxTypeName_TextChanged;
+            textBoxTypeName.Validating += TextBoxTypeName_Validating;
             // 
             // LabelTypeName
             // 
@@ -109,6 +117,10 @@
             LabelTypeName.Size = new Size(104, 25);
             LabelTypeName.TabIndex = 0;
             LabelTypeName.Text = "Тип аниме";
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // FormAddType
             // 
@@ -122,10 +134,13 @@
             Margin = new Padding(5);
             Name = "FormAddType";
             Text = "Информация о типе аниме";
+            TextChanged += TextBoxTypeName_TextChanged;
+            Validating += TextBoxTypeName_Validating;
             flowLayoutPanelBottom.ResumeLayout(false);
             flowLayoutPanelBottom.PerformLayout();
             panelFill.ResumeLayout(false);
             panelFill.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,6 +152,7 @@
         private Button btnSaveChanges;
         private Button btnCancel;
         private Label LabelTypeName;
-        private TextBox textBoxName;
+        protected internal TextBox textBoxTypeName;
+        private ErrorProvider errorProvider;
     }
 }
