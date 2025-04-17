@@ -70,7 +70,7 @@
             btnUpdateType.TabIndex = 1;
             btnUpdateType.Text = "Редактировать";
             btnUpdateType.UseVisualStyleBackColor = true;
-            btnUpdateType.Click += button2_Click;
+            btnUpdateType.Click += BtnUpdateType_Click;
             // 
             // btnDeleteType
             // 
@@ -118,7 +118,7 @@
             Name = "FormListTypes";
             Padding = new Padding(10);
             Text = "Список типов аниме";
-            Load += FormListTypes_Load;
+            Load += BtnUpdateType_Click;
             flowLayoutPanelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewTypes).EndInit();
             PanelFill.ResumeLayout(false);

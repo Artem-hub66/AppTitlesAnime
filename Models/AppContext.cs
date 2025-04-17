@@ -116,5 +116,10 @@ public partial class AppContext : DbContext
         OnModelCreatingPartial(modelBuilder);
     }
 
+    internal Type Find(short id)
+    {
+        throw new NotImplementedException();
+    }
+
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
