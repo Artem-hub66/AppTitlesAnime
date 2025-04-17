@@ -79,7 +79,7 @@ namespace AppTitlesAnime
         {
             FormAddType formAddType = new();
             DialogResult result = formAddType.ShowDialog(this);
-            
+
             if (result == DialogResult.Cancel)
                 return;
 
@@ -90,6 +90,37 @@ namespace AppTitlesAnime
             db.SaveChanges();
 
             MessageBox.Show("Новый объект добавлен");
+
+            this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
+        }
+
+        private void BtnDeleteType_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewTypes.SelectedRows.Count == 0)
+                return;
+
+            DialogResult result = MessageBox.Show(
+                "Вы уверены, что хотите удалить объект? \nВсе связанные данные будут удалены.",
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (result == DialogResult.No)
+                return;
+
+            int index = dataGridViewTypes.SelectedRows[0].Index;
+            short id = 0;
+            bool converted = Int16.TryParse(dataGridViewTypes[0, index].Value.ToString(), out id);
+            if (!converted)
+                return;
+
+            Type type = db.Types.Find(id);
+
+            db.Types.Remove(type);
+            db.SaveChanges();
+
+            MessageBox.Show("Объект удалён.");
 
             this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
         }
