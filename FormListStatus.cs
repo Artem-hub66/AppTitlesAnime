@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppContext = AppTitlesAnime.Models.AppContext;
 
 namespace AppTitlesAnime
 {
     public partial class FormListStatus : Form
     {
+        private AppContext db;
+
         public FormListStatus()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            db = new AppContext();
+            db.Statuses.Load();
+            this.dataGridViewStatus.DataSource = this.db.Statuses.Local.OrderBy(o => o.StatusName).ToList();
+
+            //скрытие столбцов
+            dataGridViewStatus.Columns["Id"].Visible = false;
+            dataGridViewStatus.Columns["TitlesStatuses"].Visible = false;
+
+            //изменение названия столбца
+            dataGridViewStatus.Columns["StatusName"].HeaderText = "Статус аниме";
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            this.db?.Dispose();
+            this.db = null;
         }
 
         private void BtnAddStatus_Click(object sender, EventArgs e)

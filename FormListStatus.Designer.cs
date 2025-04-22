@@ -95,12 +95,15 @@
             // 
             // dataGridViewStatus
             // 
+            dataGridViewStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewStatus.BackgroundColor = Color.White;
             dataGridViewStatus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewStatus.Dock = DockStyle.Fill;
             dataGridViewStatus.Location = new Point(10, 10);
+            dataGridViewStatus.MultiSelect = false;
             dataGridViewStatus.Name = "dataGridViewStatus";
             dataGridViewStatus.ReadOnly = true;
+            dataGridViewStatus.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewStatus.Size = new Size(830, 379);
             dataGridViewStatus.TabIndex = 0;
             // 

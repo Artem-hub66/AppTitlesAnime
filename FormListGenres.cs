@@ -31,11 +31,19 @@ namespace AppTitlesAnime
 
             //скрытие столбцов
             dataGridViewGenres.Columns["Id"].Visible = false;
-            dataGridViewGenres.Columns["AnimeTitles"].Visible = false;
+            dataGridViewGenres.Columns["AnimeTitlesGenres"].Visible = false;
 
             //изменение названий заголовков столбцов
             dataGridViewGenres.Columns["GenresName"].HeaderText = "Жанр аниме";
 
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            this.db?.Dispose();
+            this.db = null;
         }
 
         private void panelGenresFill_Paint(object sender, PaintEventArgs e)
