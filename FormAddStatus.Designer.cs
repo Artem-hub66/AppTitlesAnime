@@ -52,6 +52,7 @@
             // btnSaveStatus
             // 
             btnSaveStatus.AutoSize = true;
+            btnSaveStatus.DialogResult = DialogResult.OK;
             btnSaveStatus.Location = new Point(13, 13);
             btnSaveStatus.Name = "btnSaveStatus";
             btnSaveStatus.Size = new Size(115, 35);
@@ -62,6 +63,7 @@
             // btnCancelStatus
             // 
             btnCancelStatus.AutoSize = true;
+            btnCancelStatus.DialogResult = DialogResult.Cancel;
             btnCancelStatus.Location = new Point(134, 13);
             btnCancelStatus.Name = "btnCancelStatus";
             btnCancelStatus.Size = new Size(88, 35);
@@ -123,6 +125,6 @@
         private Button btnSaveStatus;
         private Button btnCancelStatus;
         private Label labelStatus;
-        private TextBox textBoxStatus;
+        protected internal TextBox textBoxStatus;
     }
 }

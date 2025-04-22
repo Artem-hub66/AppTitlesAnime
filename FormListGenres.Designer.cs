@@ -1,4 +1,8 @@
-﻿namespace AppTitlesAnime
+﻿
+
+using AppTitlesAnime.Models;
+
+namespace AppTitlesAnime
 {
     partial class FormListGenres
     {
@@ -73,6 +77,7 @@
             btnUpdateGenres.TabIndex = 1;
             btnUpdateGenres.Text = "Редактировать";
             btnUpdateGenres.UseVisualStyleBackColor = true;
+            btnUpdateGenres.Click += BtnUpdateGenres_Click;
             // 
             // btnDeleteGenres
             // 
@@ -83,6 +88,7 @@
             btnDeleteGenres.TabIndex = 2;
             btnDeleteGenres.Text = "Удалить";
             btnDeleteGenres.UseVisualStyleBackColor = true;
+            btnDeleteGenres.Click += BtnDeleteGenres_Click;
             // 
             // dataGridViewGenres
             // 
@@ -125,6 +131,38 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewGenres).EndInit();
             panelGenresFill.ResumeLayout(false);
             ResumeLayout(false);
+        }
+
+        private void BtnDeleteGenres_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (dataGridViewGenres.SelectedRows.Count == 0)
+                return;
+
+            DialogResult result = MessageBox.Show(
+                "Вы уверены, что хотите удалить объект? \nВсе связанные данные будут удалены.",
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (result == DialogResult.No)
+                return;
+
+            int index = dataGridViewGenres.SelectedRows[0].Index;
+            short id = 0;
+            bool converted = Int16.TryParse(dataGridViewGenres[0, index].Value.ToString(), out id);
+            if (!converted)
+                return;
+
+            Genre type = db.Genres.Find(id);
+
+            db.Genres.Remove(type);
+            db.SaveChanges();
+
+            MessageBox.Show("Объект удалён.");
+
+            this.dataGridViewGenres.DataSource = this.db.Genres.Local.OrderBy(o => o.GenresName).ToList();
         }
 
         #endregion

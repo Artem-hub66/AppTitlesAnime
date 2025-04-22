@@ -12,6 +12,8 @@ namespace AppTitlesAnime
 {
     public partial class FormAddStatus : Form
     {
+        internal object textBoxStatusName;
+
         public FormAddStatus()
         {
             InitializeComponent();

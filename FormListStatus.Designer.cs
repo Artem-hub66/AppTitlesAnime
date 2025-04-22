@@ -1,4 +1,7 @@
-﻿namespace AppTitlesAnime
+﻿
+using AppTitlesAnime.Models;
+
+namespace AppTitlesAnime
 {
     partial class FormListStatus
     {
@@ -72,6 +75,7 @@
             btnUpdateStatus.TabIndex = 1;
             btnUpdateStatus.Text = "Редактировать";
             btnUpdateStatus.UseVisualStyleBackColor = true;
+            btnUpdateStatus.Click += BtnUpdateStatus_Click;
             // 
             // btnDeleteStatus
             // 
@@ -82,6 +86,7 @@
             btnDeleteStatus.TabIndex = 2;
             btnDeleteStatus.Text = "Удалить";
             btnDeleteStatus.UseVisualStyleBackColor = true;
+            btnDeleteStatus.Click += BtnDeleteStatus_Click;
             // 
             // panelStatusFill
             // 
@@ -125,6 +130,38 @@
             panelStatusFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewStatus).EndInit();
             ResumeLayout(false);
+        }
+
+        private void BtnDeleteStatus_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (dataGridViewStatus.SelectedRows.Count == 0)
+                return;
+
+            DialogResult result = MessageBox.Show(
+                "Вы уверены, что хотите удалить объект? \nВсе связанные данные будут удалены.",
+                "",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (result == DialogResult.No)
+                return;
+
+            int index = dataGridViewStatus.SelectedRows[0].Index;
+            short id = 0;
+            bool converted = Int16.TryParse(dataGridViewStatus[0, index].Value.ToString(), out id);
+            if (!converted)
+                return;
+
+            Status type = db.Statuses.Find(id);
+
+            db.Statuses.Remove(type);
+            db.SaveChanges();
+
+            MessageBox.Show("Объект удалён.");
+
+            this.dataGridViewStatus.DataSource = this.db.Statuses.Local.OrderBy(o => o.StatusName).ToList();
         }
 
         #endregion

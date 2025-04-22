@@ -12,6 +12,8 @@ namespace AppTitlesAnime
 {
     public partial class FormAddType : Form
     {
+        internal object textBoxGenresName;
+
         public FormAddType()
         {
             InitializeComponent();

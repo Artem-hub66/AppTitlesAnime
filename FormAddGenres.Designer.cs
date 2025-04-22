@@ -52,16 +52,19 @@
             // btnSaveGenres
             // 
             btnSaveGenres.AutoSize = true;
+            btnSaveGenres.DialogResult = DialogResult.OK;
             btnSaveGenres.Location = new Point(13, 13);
             btnSaveGenres.Name = "btnSaveGenres";
             btnSaveGenres.Size = new Size(115, 35);
             btnSaveGenres.TabIndex = 0;
             btnSaveGenres.Text = "Сохранить";
             btnSaveGenres.UseVisualStyleBackColor = true;
+            btnSaveGenres.Click += btnSaveGenres_Click;
             // 
             // btnCancelGenres
             // 
             btnCancelGenres.AutoSize = true;
+            btnCancelGenres.DialogResult = DialogResult.Cancel;
             btnCancelGenres.Location = new Point(134, 13);
             btnCancelGenres.Name = "btnCancelGenres";
             btnCancelGenres.Size = new Size(88, 35);
@@ -123,6 +126,6 @@
         private Button btnSaveGenres;
         private Button btnCancelGenres;
         private Label labelGenres;
-        private TextBox textBoxGenres;
+        protected internal TextBox textBoxGenres;
     }
 }

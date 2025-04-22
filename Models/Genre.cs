@@ -11,4 +11,9 @@ public partial class Genre
 
     //навигационные свойства
     public virtual ICollection<AnimeTitlesGenre> AnimeTitlesGenres { get; set; } = new List<AnimeTitlesGenre>();
+
+    public static implicit operator Genre(Type v)
+    {
+        throw new NotImplementedException();
+    }
 }

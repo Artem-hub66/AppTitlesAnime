@@ -12,9 +12,16 @@ namespace AppTitlesAnime
 {
     public partial class FormAddGenres : Form
     {
+        internal object textBoxGenresName;
+
         public FormAddGenres()
         {
             InitializeComponent();
+        }
+
+        private void btnSaveGenres_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
