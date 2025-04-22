@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             flowLayoutPanelAddGenres = new FlowLayoutPanel();
             btnSaveGenres = new Button();
             btnCancelGenres = new Button();
             panelAddGenres = new Panel();
             textBoxGenres = new TextBox();
             labelGenres = new Label();
+            errorProvider = new ErrorProvider(components);
             flowLayoutPanelAddGenres.SuspendLayout();
             panelAddGenres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelAddGenres
@@ -90,6 +93,7 @@
             textBoxGenres.Name = "textBoxGenres";
             textBoxGenres.Size = new Size(399, 33);
             textBoxGenres.TabIndex = 1;
+            textBoxGenres.Validating += TextBoxGenres_Validating;
             // 
             // labelGenres
             // 
@@ -100,6 +104,10 @@
             labelGenres.Size = new Size(120, 25);
             labelGenres.TabIndex = 0;
             labelGenres.Text = "Жанр аниме";
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // FormAddGenres
             // 
@@ -117,6 +125,7 @@
             flowLayoutPanelAddGenres.PerformLayout();
             panelAddGenres.ResumeLayout(false);
             panelAddGenres.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -127,5 +136,6 @@
         private Button btnCancelGenres;
         private Label labelGenres;
         protected internal TextBox textBoxGenres;
+        private ErrorProvider errorProvider;
     }
 }

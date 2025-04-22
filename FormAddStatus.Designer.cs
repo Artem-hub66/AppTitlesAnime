@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             flowLayoutPanelAddStatus = new FlowLayoutPanel();
             btnSaveStatus = new Button();
             btnCancelStatus = new Button();
             panelAddStatus = new Panel();
             textBoxStatus = new TextBox();
             labelStatus = new Label();
+            errorProvider = new ErrorProvider(components);
             flowLayoutPanelAddStatus.SuspendLayout();
             panelAddStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // flowLayoutPanelAddStatus
@@ -89,6 +92,7 @@
             textBoxStatus.Name = "textBoxStatus";
             textBoxStatus.Size = new Size(370, 33);
             textBoxStatus.TabIndex = 1;
+            textBoxStatus.Validating += TextBoxStatus_Validating;
             // 
             // labelStatus
             // 
@@ -99,6 +103,10 @@
             labelStatus.Size = new Size(128, 25);
             labelStatus.TabIndex = 0;
             labelStatus.Text = "Статус аниме";
+            // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
             // 
             // FormAddStatus
             // 
@@ -116,6 +124,7 @@
             flowLayoutPanelAddStatus.PerformLayout();
             panelAddStatus.ResumeLayout(false);
             panelAddStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
         }
 
@@ -126,5 +135,6 @@
         private Button btnCancelStatus;
         private Label labelStatus;
         protected internal TextBox textBoxStatus;
+        private ErrorProvider errorProvider;
     }
 }
