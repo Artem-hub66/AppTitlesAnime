@@ -37,5 +37,19 @@ namespace AppTitlesAnime
                 btnSaveStatus.Enabled = true;
             }
         }
+
+        private void TextBoxStatus_TextChanges (object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxStatus.Text))
+            {
+                errorProvider.SetError(textBoxStatus, "Поле не может быть пустым!");
+                btnSaveStatus.Enabled = false;
+            }
+            else
+            {
+                errorProvider.Clear();
+                btnSaveStatus.Enabled = true;
+            }
+        }
     }
 }

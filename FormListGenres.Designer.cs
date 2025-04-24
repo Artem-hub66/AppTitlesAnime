@@ -135,7 +135,6 @@ namespace AppTitlesAnime
 
         private void BtnDeleteGenres_Click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
             if (dataGridViewGenres.SelectedRows.Count == 0)
                 return;
 
