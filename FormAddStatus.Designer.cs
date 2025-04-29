@@ -83,7 +83,7 @@
             panelAddStatus.Name = "panelAddStatus";
             panelAddStatus.Padding = new Padding(10);
             panelAddStatus.Size = new Size(390, 82);
-            panelAddStatus.TabIndex = 2;
+            panelAddStatus.TabIndex = 0;
             // 
             // textBoxStatus
             // 
@@ -92,6 +92,7 @@
             textBoxStatus.Name = "textBoxStatus";
             textBoxStatus.Size = new Size(370, 33);
             textBoxStatus.TabIndex = 1;
+            textBoxStatus.TextChanged += TextBoxStatus_TextChanges;
             textBoxStatus.Validating += TextBoxStatus_Validating;
             // 
             // labelStatus

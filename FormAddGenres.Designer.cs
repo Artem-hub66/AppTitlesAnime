@@ -84,7 +84,7 @@
             panelAddGenres.Name = "panelAddGenres";
             panelAddGenres.Padding = new Padding(10);
             panelAddGenres.Size = new Size(419, 82);
-            panelAddGenres.TabIndex = 2;
+            panelAddGenres.TabIndex = 0;
             // 
             // textBoxGenres
             // 
@@ -93,6 +93,7 @@
             textBoxGenres.Name = "textBoxGenres";
             textBoxGenres.Size = new Size(399, 33);
             textBoxGenres.TabIndex = 1;
+            textBoxGenres.TextChanged += TextBoxGenres_TextChanges;
             textBoxGenres.Validating += TextBoxGenres_Validating;
             // 
             // labelGenres
