@@ -43,7 +43,7 @@ namespace AppTitlesAnime
             this.db = null;
         }
 
-        private void panelAddStatus_Paint(object sender, PaintEventArgs e)
+        private void PanelAddStatus_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -68,7 +68,9 @@ namespace AppTitlesAnime
             {
                 errorProvider.SetError(textBoxStatus, "Поле не может быть пустым!");
                 btnSaveStatus.Enabled = false;
-            }else if(db.Statuses.Local.Any(o => o.StatusName.Equals(textBoxStatus.Text, StringComparison.OrdinalIgnoreCase)))
+            }
+            //any проверяет сущ эл в послед. Equals проверяет равенство элементов
+            else if (db.Statuses.Local.Any(o => o.StatusName.Equals(textBoxStatus.Text, StringComparison.OrdinalIgnoreCase)))
             {
                 errorProvider.SetError(textBoxStatus, "Такое значение уже есть!");
                 btnSaveChanges = false;

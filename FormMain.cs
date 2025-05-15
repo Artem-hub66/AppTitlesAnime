@@ -11,6 +11,9 @@ namespace AppTitlesAnime
         {
             FormListTypes formListTypes = new FormListTypes();
             formListTypes.Show();
+
+            /*FormListTypes formListTypes1 = new FormListTypes();
+            formListTypes1.ShowDialog();*/
         }
 
         private void BtnShowStatus_Click(object sender, EventArgs e)

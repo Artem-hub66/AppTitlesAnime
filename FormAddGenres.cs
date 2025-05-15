@@ -66,7 +66,9 @@ namespace AppTitlesAnime
             {
                 errorProvider.SetError(textBoxGenres, "Поле не может быть пустым!");
                 btnSaveGenres.Enabled = false;
-            }else if(db.Genres.Local.Any(o => o.GenresName.Equals(textBoxGenres.Text, StringComparison.OrdinalIgnoreCase)))
+            }
+            //any проверяет сущ эл в послед. Equals проверяет равенство элементов
+            else if (db.Genres.Local.Any(o => o.GenresName.Equals(textBoxGenres.Text, StringComparison.OrdinalIgnoreCase)))
             {
                 errorProvider.SetError(textBoxGenres, "Такое значение уже есть!");
                 btnSaveGenres.Enabled = false;

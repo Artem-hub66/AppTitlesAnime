@@ -70,13 +70,15 @@ namespace AppTitlesAnime
             db.Types.Update(type);
             db.SaveChanges();
 
-            MessageBox.Show("Объект изменён");
+            MessageBox.Show("Объект изменён", "Обновление", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
         }
 
         private void BtnAddType_Click(object sender, EventArgs e)
         {
+            //show просто покажет созданный диалог, а showDialog, начинает проверять был ли уже создан диалог
+            //возвращает значение только при закрытии окна
             FormAddType formAddType = new();
             DialogResult result = formAddType.ShowDialog(this);
 
@@ -89,7 +91,7 @@ namespace AppTitlesAnime
             db.Types.Add(type);
             db.SaveChanges();
 
-            MessageBox.Show("Новый объект добавлен");
+            MessageBox.Show("Новый объект добавлен", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
         }
@@ -120,7 +122,7 @@ namespace AppTitlesAnime
             db.Types.Remove(type);
             db.SaveChanges();
 
-            MessageBox.Show("Объект удалён.");
+            MessageBox.Show("Объект удалён.", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.dataGridViewTypes.DataSource = this.db.Types.Local.OrderBy(o => o.TypeName).ToList();
         }

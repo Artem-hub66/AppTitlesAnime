@@ -18,7 +18,7 @@ namespace AppTitlesAnime
 
         private AppContext db;
 
-        internal object textBoxGenresName;
+        /*internal object textBoxGenresName;*/
         private object dataGridViewTypes;
 
         public FormAddType()
@@ -40,7 +40,7 @@ namespace AppTitlesAnime
             this.db = null;
         }
 
-        private void btnSaveChanges_Click(object sender, EventArgs e)
+        private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
 
         }
@@ -50,6 +50,12 @@ namespace AppTitlesAnime
             if (String.IsNullOrEmpty(textBoxTypeName.Text))
             {
                 errorProvider.SetError(textBoxTypeName, "Поле не может быть пустым!");
+                btnSaveChanges.Enabled = false;
+            }
+            //any проверяет сущ эл в послед. Equals проверяет равенство элементов
+            else if (db.Types.Local.Any(o => o.TypeName.Equals(textBoxTypeName.Text, StringComparison.OrdinalIgnoreCase)))
+            {
+                errorProvider.SetError(textBoxTypeName, "Такое значение уже есть!");
                 btnSaveChanges.Enabled = false;
             }
             else
@@ -65,11 +71,13 @@ namespace AppTitlesAnime
             {
                 errorProvider.SetError(textBoxTypeName, "Поле не может быть пустым!");
                 btnSaveChanges.Enabled = false;
-            }else if(db.Types.Local.Any(o => o.TypeName.Equals(textBoxTypeName.Text, StringComparison.OrdinalIgnoreCase)))
+
+            }
+            /*else if (db.Types.Local.Any(o => o.TypeName.Equals(textBoxTypeName.Text, StringComparison.OrdinalIgnoreCase)))
             {
                 errorProvider.SetError(textBoxTypeName, "Такое значение уже есть!");
                 btnSaveChanges.Enabled = false;
-            }
+            }*/
             else
             {
                 errorProvider.Clear();

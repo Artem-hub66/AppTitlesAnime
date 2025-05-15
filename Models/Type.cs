@@ -5,7 +5,7 @@ namespace AppTitlesAnime.Models;
 
 public partial class Type
 {
-    internal string GenresName;
+//    internal string GenresName;
 
     public short Id { get; set; }
 
